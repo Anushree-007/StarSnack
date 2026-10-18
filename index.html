@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#17143b" />
+    <title>Star Snack! — a tiny arcade break</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="arcade-shell">
+      <header class="topbar"><a class="brand" href="#"><span class="brand-mark">✦</span> STAR SNACK</a><button class="sound-toggle" id="soundToggle" aria-label="Mute sound" title="Mute sound">🔊</button></header>
+
+      <section class="game-layout" aria-label="Star Snack arcade game">
+        <div class="game-center">
+          <div class="hud">
+            <div class="hud-cell score-cell"><div class="score-readout">🍓 <span id="score">00</span><span class="score-target">/ 20</span></div><div class="progress-track"><div id="progressFill"></div></div></div>
+            <div class="hud-cell timer-cell"><div class="timer-readout" id="timer">1:30</div></div>
+            <div class="hud-cell best-cell"><span>BEST</span><b id="bestTime">—:—</b></div>
+            <div class="hud-cell lives-cell"><div class="hearts" id="hearts" aria-label="3 lives">♥ ♥ ♥</div></div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="game" width="800" height="500" tabindex="0" aria-label="Game area. Move Nova to collect berries and avoid comets."></canvas>
+            <div class="scanlines" aria-hidden="true"></div>
+            <div class="overlay" id="overlay">
+              <div class="overlay-card" id="overlayCard">
+                <div class="hero-emoji" id="heroEmoji">🚀</div>
+                <h1 id="overlayTitle">STAR<br /><span>SNACK!</span></h1>
+                <p id="overlayText">Collect 20 berries. Dodge comets.</p>
+                <button class="start-button" id="startButton">LET'S PLAY <span>▶</span></button>
+                <div class="start-hint" id="startHint">ARROWS / WASD · ENTER TO START</div>
+              </div>
+            </div>
+            <div class="toast" id="toast" aria-live="polite"></div>
+          </div>
+          <div class="below-game"><span>ARROWS / WASD TO MOVE</span><div class="game-actions"><button id="pauseButton" title="Pause game (P)" aria-label="Pause game">Ⅱ <span>PAUSE</span></button><button id="restartButton" title="Restart game (R)">↻ <span>RESTART</span></button></div></div>
+          <div class="touch-controls" aria-label="Touch movement controls"><button data-dir="up" aria-label="Move up">▲</button><div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div></div>
+        </div>
+
+      </section>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
